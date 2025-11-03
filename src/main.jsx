@@ -4,6 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import Home from './pages/home.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Aeronaves from './pages/aeronaves.jsx'
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
     path: '/home',
     element: <Home />
   },
+  {
+    path: '/aeronaves/:id',
+    element: <Aeronaves />
+  }
 ])
 
 createRoot(document.getElementById('root')).render(
