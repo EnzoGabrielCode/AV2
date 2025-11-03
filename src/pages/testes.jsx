@@ -1,9 +1,17 @@
 import Navbar from "../components/navbar";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Modal from "../components/modals/modal";
+import ModalCadastrarTeste from "../components/modals/modalCadastrarTeste";
 
 function Testes() {
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+
+  const handleAddTeste = (novoTeste) => {
+    setTestes([...testes, novoTeste]);
+  };
+
   const [testes, setTestes] = useState([
     {
       id: 1,
@@ -41,7 +49,10 @@ function Testes() {
                 TESTES - AERONAVE
               </div>
             </div>
-            <button className="size-fit text-2xl font-medium p-2 px-6 py-2 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-500 transition cursor-pointer">
+            <button
+              onClick={() => setShowModal(true)}
+              className="size-fit text-2xl font-medium p-2 px-6 py-2 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-500 transition cursor-pointer"
+            >
               ADICIONAR
             </button>
           </div>
@@ -66,6 +77,11 @@ function Testes() {
               </button>
             ))}
           </div>
+          <ModalCadastrarTeste
+            open={showModal}
+            onClose={() => setShowModal(false)}
+            onSave={handleAddTeste}
+          />
         </div>
       </div>
     </div>

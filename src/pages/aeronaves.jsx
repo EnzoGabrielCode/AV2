@@ -62,21 +62,23 @@ function Aeronaves() {
               >
                 <img src="/img/iconBack.png" alt="" />
               </button>
-              <div className="bg-slate-500 size-fit text-2xl shadow-md font-medium p-2 rounded-xl">
+              <div className="bg-slate-400 size-fit text-2xl shadow-md font-medium p-2 rounded-xl">
                 AERONAVE
               </div>
+            </div>
+            <div className="flex gap-6">
               <button
                 onClick={() => {
                   navigate("/testes");
                 }}
-                className="bg-slate-400 size-fit text-2xl font-medium p-2 cursor-pointer shadow-md hover:bg-slate-300 transition rounded-xl"
+                className="bg-blue-600 text-white size-fit text-2xl font-medium p-2 cursor-pointer shadow-md hover:bg-blue-500 transition rounded-xl"
               >
                 TESTES
               </button>
+              <button className="size-fit text-2xl font-medium p-2 px-6 py-2 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-500 transition cursor-pointer">
+                GERAR RELATÓRIO
+              </button>
             </div>
-            <button className="size-fit text-2xl font-medium p-2 px-6 py-2 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-500 transition cursor-pointer">
-              GERAR RELATÓRIO
-            </button>
           </div>
           <div className="grid grid-cols-2 gap-y-7 gap-x-20 pb-7">
             <button className="bg-gray-300 flex p-8 flex-col text-[1.25rem] font-medium rounded-lg shadow-md">
