@@ -10,6 +10,34 @@ Consulte o relatório técnico detalhado do projeto:
 
 - [Relatório AeroCode (PDF)](./relatorio/relatorio_aerocode.pdf)
 
+## ⚙️ Como Rodar o Projeto
+
+Siga os passos abaixo para executar o projeto localmente:
+
+1.  **Clone o repositório**
+
+    ```bash
+    git clone [URL_DO_SEU_REPOSITORIO]
+    cd [NOME_DA_PASTA_DO_PROJETO]
+    ```
+
+2.  **Instale as dependências**
+    Execute o comando abaixo na raiz do projeto para instalar todos os pacotes necessários:
+
+    ```bash
+    npm install
+    ```
+
+3.  **Execute a aplicação**
+    Para iniciar o servidor de desenvolvimento (usando o Vite, como visto no seu `vite.config.js`), rode:
+
+    ```bash
+    npm run dev
+    ```
+
+4.  **Acesse no navegador**
+    Após o comando anterior, o terminal mostrará o endereço local. Geralmente, é o `http://localhost:5173`. Abra este link no seu navegador.
+
 ## 🚀 Como Usar o Sistema
 
 O uso da plataforma é baseado no seu nível de acesso. O fluxo principal é o seguinte:
