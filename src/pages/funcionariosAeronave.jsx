@@ -4,26 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function Funcionarios() {
   const navigate = useNavigate();
-  let [funcionarios, setFuncionario] = useState([
-    {
-      id: 1,
-      nome: "Carlos Silva",
-      telefone: "(11) 91234-5678",
-      endereco: "Rua A, 123, São Paulo",
-      user: "carlos.silva",
-      senha: "senha123",
-      funcao: "Engenheiro",
-    },
-    {
-      id: 2,
-      nome: "Ana Souza",
-      telefone: "(21) 99876-5432",
-      endereco: "Avenida B, 456, Rio de Janeiro",
-      user: "ana.souza",
-      senha: "senha456",
-      funcao: "Administrador",
-    },
-  ]);
+  let [funcionarios, setFuncionario] = useState([]);
 
   return (
     <div className="h-full w-full">
@@ -75,9 +56,6 @@ function Funcionarios() {
                 </div>
               </button>
             ))}
-            <button className="bg-gray-300 flex p-8 cursor-pointer justify-center items-center rounded-lg shadow-md hover:bg-gray-200 transition">
-              <img className="w-15" src="/img/iconAdd.png" alt="" />
-            </button>
           </div>
         </div>
       </div>

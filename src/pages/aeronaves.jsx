@@ -1,51 +1,52 @@
 import Navbar from "../components/navbar";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Aeronaves() {
   const navigate = useNavigate();
-  let [pecas, setPecas] = useState([
+  const { id } = useParams();
+
+  const [aeronaves, setAeronaves] = useState([
     {
       id: 1,
-      nome: "Asa",
-      tipo: "Nacional",
-      fornecedor: "Embraer",
-      status: "em produção",
+      cod: "PT-ABC",
+      modelo: "Cessna 172",
+      tipo: "militar",
+      capacidade: 4,
+      alcance: 1289,
     },
     {
       id: 2,
-      nome: "Trem de pouso",
-      tipo: "Importado",
-      fornecedor: "Boeing",
-      status: "em produção",
+      cod: "PT-DEF",
+      modelo: "Boeing 737",
+      tipo: "comercial",
+      capacidade: 189,
+      alcance: 6570,
+    },
+    {
+      id: 3,
+      cod: "PT-GHI",
+      modelo: "Airbus A320",
+      tipo: "comercial",
+      capacidade: 180,
+      alcance: 6150,
     },
   ]);
 
-  const [etapas, setEtapas] = useState([
-    {
-      id: 1,
-      nome: "Montagem da fuselagem",
-      prazo: "2024-07-15",
-      status: "em andamento",
-    },
-    {
-      id: 2,
-      nome: "Instalação dos motores",
-      prazo: "2024-08-01",
-      status: "pendente",
-    },
-  ]);
+  const aeronave = aeronaves.find((a) => a.id === parseInt(id));
 
-  const [funcionarios, setFuncionarios] = useState([
-    {
-      id: 1,
-      nome: "Carlos Silva",
-      telefone: "(11) 91234-5678",
-      endereco: "Rua A, 123, São Paulo, SP",
-      user: "carlos.silva",
-      senha: "senha123",
-    },
-  ]);
+  let [pecas, setPecas] = useState([]);
+  const [etapas, setEtapas] = useState([]);
+  const [funcionarios, setFuncionarios] = useState([]);
+
+  if (!aeronave) {
+    return (
+      <div className="h-full w-full">
+        <Navbar />
+        <div className="p-10 text-xl">Aeronave não encontrada.</div>
+      </div>
+    );
+  }
 
   return (
     <div className="h-full w-full">
@@ -63,21 +64,8 @@ function Aeronaves() {
                 <img src="/img/iconBack.png" alt="" />
               </button>
               <div className="bg-slate-400 size-fit text-2xl shadow-md font-medium p-2 rounded-xl">
-                AERONAVE
+                AERONAVE {aeronave.cod}
               </div>
-            </div>
-            <div className="flex gap-6">
-              <button
-                onClick={() => {
-                  navigate("/testes");
-                }}
-                className="bg-blue-600 text-white size-fit text-2xl font-medium p-2 cursor-pointer shadow-md hover:bg-blue-500 transition rounded-xl"
-              >
-                TESTES
-              </button>
-              <button className="size-fit text-2xl font-medium p-2 px-6 py-2 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-500 transition cursor-pointer">
-                GERAR RELATÓRIO
-              </button>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-y-7 gap-x-20 pb-7">
@@ -89,18 +77,22 @@ function Aeronaves() {
               <div className="w-full border border-gray-500 rounded-lg overflow-hidden">
                 <div className="flex justify-between border-b border-gray-500 p-2 bg-gray-100">
                   <span>MODELO:</span>
+                  <span>{aeronave.modelo}</span>
                 </div>
 
                 <div className="flex justify-between border-b border-gray-500 p-2">
                   <span>TIPO:</span>
+                  <span>{aeronave.tipo}</span>
                 </div>
 
                 <div className="flex justify-between border-b border-gray-500 p-2 bg-gray-100">
                   <span>CAPACIDADE:</span>
+                  <span>{aeronave.capacidade}</span>
                 </div>
 
                 <div className="flex justify-between p-2">
                   <span>ALCANCE:</span>
+                  <span>{aeronave.alcance}</span>
                 </div>
               </div>
             </button>
