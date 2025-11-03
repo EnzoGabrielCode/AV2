@@ -17,8 +17,8 @@ Siga os passos abaixo para executar o projeto localmente:
 1.  **Clone o repositório**
 
     ```bash
-    git clone [URL_DO_SEU_REPOSITORIO]
-    cd [NOME_DA_PASTA_DO_PROJETO]
+    git clone https://github.com/EnzoGabrielCode/AV2
+    cd AV2
     ```
 
 2.  **Instale as dependências**
@@ -59,13 +59,13 @@ O sistema possui três tipos de usuários, cada um com responsabilidades claras 
 - ### **Administrador (Admin)**
 
 - **O que faz?** Gerencia todo o sistema, define papéis e monitora as atividade.
-  - **Como usar?** O Admin é o único que pode acessar o módulo de **Usuários** para cadastrar, editar ou remover Operários e Engenheiros.
+    - **Como usar?** O Admin é o único que pode acessar o módulo de **Usuários** para cadastrar, editar ou remover Operários e Engenheiros.
 
 - ### **Engenheiro (Eng)**
 
 - **O que faz?** Supervisiona as etapas técnicas, valida informações e libera processos para a próxima fase.
-  - **Como usar?** O Engenheiro deve acessar os módulos de **Etapas** e **Testes** para revisar o trabalho feito pelo Operário, validar os dados e aprovar a conclusão de um processo.
+    - **Como usar?** O Engenheiro deve acessar os módulos de **Etapas** e **Testes** para revisar o trabalho feito pelo Operário, validar os dados e aprovar a conclusão de um processo.
 
 - ### **Operário (Ope)**
   - **O que faz?** É o responsável pela execução. Ele registra as tarefas que realizou e atualiza o status dos processos.
-    - **Como usar?** O Operário utiliza o sistema para acessar suas tarefas designadas (ex: "Montagem da Fuselagem", "Instalação de Peça X") e, ao concluí-las, atualiza o **status** do processo (ex: de "Pendente" para "Em Andamento" ou "Concluído").
+      - **Como usar?** O Operário utiliza o sistema para acessar suas tarefas designadas (ex: "Montagem da Fuselagem", "Instalação de Peça X") e, ao concluí-las, atualiza o **status** do processo (ex: de "Pendente" para "Em Andamento" ou "Concluído").
