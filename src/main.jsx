@@ -9,6 +9,8 @@ import Etapas from "./pages/etapas.jsx";
 import Pecas from "./pages/pecas.jsx";
 import Funcionarios from "./pages/funcionariosAeronave.jsx";
 import Testes from "./pages/testes.jsx";
+import HomeAdm from "./pages/HomeAdm.jsx";
+import FuncionariosAdm from "./pages/funcionariosAdm.jsx";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
   {
     path: "/testes",
     element: <Testes />,
+  },
+  {
+    path: "/homeAdm",
+    element: <HomeAdm />,
+  },
+  {
+    path: "/funcionariosAdm",
+    element: <FuncionariosAdm />,
   },
 ]);
 

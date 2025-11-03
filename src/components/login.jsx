@@ -1,7 +1,23 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function Login() {
   const navigate = useNavigate();
+  const [funcao, setFuncao] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    if (funcao === "operario") {
+      navigate("/home");
+    } else if (funcao === "engenheiro") {
+      navigate("/home");
+    } else if (funcao === "administrador") {
+      navigate("/homeAdm");
+    } else {
+      alert("Por favor, selecione uma função.");
+    }
+  };
 
   return (
     <div className="flex justify-center place-items-center w-full h-screen min-w-[320px]">
@@ -11,7 +27,7 @@ function Login() {
         </h1>
         <form
           className="flex flex-col items-center justify-center gap-[15px] "
-          action=""
+          onSubmit={handleLogin}
         >
           <input
             className="bg-gray-100 w-4/5 text-[2rem] text-center rounded-xl"
@@ -27,10 +43,23 @@ function Login() {
             id="password"
             placeholder="SENHA"
           />
+
+          <select
+            className="bg-gray-100 w-4/5 text-[2rem] text-center rounded-xl"
+            value={funcao}
+            onChange={(e) => setFuncao(e.target.value)}
+            required
+          >
+            <option value="" disabled>
+              FUNÇÃO
+            </option>{" "}
+            <option value="administrador">Administrador</option>
+            <option value="engenheiro">Engenheiro</option>
+            <option value="operario">Operario</option>
+          </select>
+
           <button
-            onClick={() => {
-              navigate("/home");
-            }}
+            type="submit"
             className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-500 transition"
           >
             Entrar
