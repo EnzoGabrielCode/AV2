@@ -1,7 +1,6 @@
 import Navbar from "../components/navbar";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Modal from "../components/modals/modal";
 import ModalCadastrarTeste from "../components/modals/modalCadastrarTeste";
 
 function Testes() {
@@ -12,23 +11,7 @@ function Testes() {
     setTestes([...testes, novoTeste]);
   };
 
-  const [testes, setTestes] = useState([
-    {
-      id: 1,
-      tipo: "elétrico",
-      resultado: "aprovado",
-    },
-    {
-      id: 2,
-      tipo: "mecânico",
-      resultado: "reprovado",
-    },
-    {
-      id: 3,
-      tipo: "aerodinâmico",
-      resultado: "aprovado",
-    },
-  ]);
+  const [testes, setTestes] = useState([]);
 
   return (
     <div className="h-full w-full">

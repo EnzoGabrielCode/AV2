@@ -1,25 +1,17 @@
 import Navbar from "../components/navbar";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ModalCadastrarPeca from "../components/modals/modalCadastraPeca";
 
 function Pecas() {
   const navigate = useNavigate();
-  let [pecas, setPecas] = useState([
-    {
-      id: 1,
-      nome: "Asa",
-      tipo: "Nacional",
-      fornecedor: "Embraer",
-      status: "em produção",
-    },
-    {
-      id: 2,
-      nome: "Trem de pouso",
-      tipo: "Importado",
-      fornecedor: "Boeing",
-      status: "em produção",
-    },
-  ]);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleAddPeca = (novaPeca) => {
+    setPecas([...pecas, novaPeca]);
+  };
+
+  let [pecas, setPecas] = useState([]);
 
   return (
     <div className="h-full w-full">
@@ -40,7 +32,10 @@ function Pecas() {
                 PECAS - AERONAVE
               </div>
             </div>
-            <button className="size-fit text-2xl font-medium p-2 px-6 py-2 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-500 transition cursor-pointer">
+            <button
+              onClick={() => setShowModal(true)}
+              className="size-fit text-2xl font-medium p-2 px-6 py-2 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-500 transition cursor-pointer"
+            >
               ADICIONAR
             </button>
           </div>
@@ -70,6 +65,11 @@ function Pecas() {
               </button>
             ))}
           </div>
+          <ModalCadastrarPeca
+            open={showModal}
+            onClose={() => setShowModal(false)}
+            onSave={handleAddPeca}
+          />
         </div>
       </div>
     </div>

@@ -1,23 +1,17 @@
 import Navbar from "../components/navbar";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ModalCadastrarEtapa from "../components/modals/modalCadastrarEtapa";
 
 function Etapas() {
   const navigate = useNavigate();
-  const [etapas, setEtapas] = useState([
-    {
-      id: 1,
-      nome: "Montagem da fuselagem",
-      prazo: "2024-07-15",
-      status: "em andamento",
-    },
-    {
-      id: 2,
-      nome: "Instalação dos motores",
-      prazo: "2024-08-01",
-      status: "pendente",
-    },
-  ]);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleAddEtapa = (novaEtapa) => {
+    setEtapas([...etapas, novaEtapa]);
+  };
+
+  const [etapas, setEtapas] = useState([]);
 
   return (
     <div className="h-full w-full">
@@ -38,7 +32,10 @@ function Etapas() {
                 ETAPAS - AERONAVE
               </div>
             </div>
-            <button className="size-fit text-2xl font-medium p-2 px-6 py-2 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-500 transition cursor-pointer">
+            <button
+              onClick={() => setShowModal(true)}
+              className="size-fit text-2xl font-medium p-2 px-6 py-2 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-500 transition cursor-pointer"
+            >
               ADICIONAR
             </button>
           </div>
@@ -63,6 +60,11 @@ function Etapas() {
               </button>
             ))}
           </div>
+          <ModalCadastrarEtapa
+            open={showModal}
+            onClose={() => setShowModal(false)}
+            onSave={handleAddEtapa}
+          />
         </div>
       </div>
     </div>

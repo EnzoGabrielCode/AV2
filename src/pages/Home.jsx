@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/navbar";
 import { useState } from "react";
+import ModalCadastrarAeronave from "../components/modals/modalCadastrarAeronave";
 
 function Home() {
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+
   const [aeronaves, setAeronaves] = useState([
     {
       id: 1,
@@ -30,6 +33,10 @@ function Home() {
       alcance: 6150,
     },
   ]);
+
+  const handleAddAeronave = (novaAeronave) => {
+    setAeronaves([...aeronaves, novaAeronave]);
+  };
 
   return (
     <div className="h-full w-full">
@@ -75,10 +82,18 @@ function Home() {
                 </div>
               </button>
             ))}
-            <button className="bg-gray-300 flex p-8 cursor-pointer justify-center items-center rounded-lg shadow-md hover:bg-gray-200 transition">
+            <button
+              onClick={() => setShowModal(true)}
+              className="bg-gray-300 flex p-8 cursor-pointer justify-center items-center rounded-lg shadow-md hover:bg-gray-200 transition"
+            >
               <img className="w-15" src="/img/iconAdd.png" alt="" />
             </button>
           </div>
+          <ModalCadastrarAeronave
+            open={showModal}
+            onClose={() => setShowModal(false)}
+            onSave={handleAddAeronave}
+          />
         </div>
       </div>
     </div>
